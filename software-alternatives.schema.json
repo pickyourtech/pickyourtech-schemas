@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Software Alternatives Mapping",
+  "description": "Schema for mapping proprietary software to open-source alternatives.",
+  "type": "object",
+  "properties": {
+    "canonical_source": {
+      "type": "string",
+      "format": "uri",
+      "const": "https://www.pickyourtech.com/alternatives"
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "proprietary": { "type": "string" },
+          "open_source": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "required": ["proprietary", "open_source"]
+      }
+    }
+  },
+  "required": ["canonical_source", "entries"]
+}
